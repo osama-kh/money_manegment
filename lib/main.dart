@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:money_manegment/Transaction.dart';
 import './Transaction.dart';
@@ -30,7 +30,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -42,6 +42,27 @@ class MyHomePage extends StatelessWidget {
                 child: Text('CHART'),
               ),
               elevation: 5,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(decoration: InputDecoration(labelText: 'amount')),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'add Transaction',
+                        style: TextStyle(color: Colors.purple),
+                      ),
+                    )
+                  ]),
             ),
           ),
           Column(
@@ -57,7 +78,7 @@ class MyHomePage extends StatelessWidget {
                       border: Border.all(color: Colors.black, width: 2)),
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    tx.amount.toString(),
+                    '\$${tx.amount}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -75,11 +96,11 @@ class MyHomePage extends StatelessWidget {
                           color: Colors.blueGrey),
                     ),
                     Text(
-                      tx.date.toString(),
+                      DateFormat.yMMMEd().format(tx.date),
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 10,
-                          color: Colors.grey),
+                          fontSize: 14,
+                          color: Color.fromARGB(247, 115, 94, 94)),
                     )
                   ],
                 )
