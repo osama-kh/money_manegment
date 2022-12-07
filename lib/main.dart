@@ -4,6 +4,7 @@ import 'package:money_manegment/models/Transaction.dart';
 import 'package:money_manegment/widgets/transactionlist.dart';
 import './widgets/new_transaction.dart';
 import './models/Transaction.dart';
+import './widgets/chart.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,6 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
     //       id: 't2', title: 'New jacket', amount: 169.99, date: DateTime.now())
   ];
 
+  List<Transaction> get _recentTransactions {
+    return _userTransaction.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   void _addNewTransaction(String txtitle, double txamount) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
@@ -86,17 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                child: Container(
-                  width: double.infinity,
-                  child: Text('CHART'),
-                ),
-                elevation: 5,
-              ),
-            ),
+            Chart(_recentTransactions),
             TransActionList(_userTransaction)
           ],
         ),
