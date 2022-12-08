@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -53,11 +55,29 @@ class _NewTransactionState extends State<NewTransaction> {
                 onSubmitted: (_) => submitData(),
                 // onChanged: ((value) => amountinput = value),
               ),
-              TextButton(
-                onPressed: submitData,
-                child: Text(
-                  'add Transaction',
-                  style: TextStyle(color: Colors.purple),
+              Container(
+                height: 70,
+                child: Row(
+                  children: <Widget>[
+                    Text('No Date Chosen!'),
+                    TextButton(
+                      onPressed: (() {}),
+                      child: const Text(
+                        'Choose Date',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                child: ElevatedButton(
+                  onPressed: submitData,
+                  child: Text(
+                    'add Transaction',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               )
             ]),
