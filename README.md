@@ -1,11 +1,14 @@
 # money manegment
 
-A new Flutter project.
+Flutter project.
+dart programming language.
 
-## Getting Started
+## Summry
 
-This project is a starting point for a Flutter application.
-
+This project is about money manegment system to control the daily expenses
+# the main page
 <img src="money manegment photos/3.jpg" width=180 height=350>
+adding an activity and it's cost
 <img src="money manegment photos/2.jpg" width=180 height=350>
+show it in the main page
 <img src="money manegment photos/1.jpg" width=180 height=350>
