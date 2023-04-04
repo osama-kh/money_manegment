@@ -6,7 +6,8 @@ dart programming language.
 ## Summry
 
 This project is about money manegment system to control the daily expenses
-# the main page
+# the project UI
+the main page
 <img src="money manegment photos/3.jpg" width=180 height=350>
 adding an activity and it's cost
 <img src="money manegment photos/2.jpg" width=180 height=350>
